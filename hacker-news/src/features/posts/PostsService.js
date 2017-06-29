@@ -9,3 +9,5 @@
 
 export const fetchPosts = () => fetch('http://jsonplaceholder.typicode.com/posts')
     .then(response => response.json());
+export const fetchPost = (id) => fetch(`http://jsonplaceholder.typicode.com/posts/${id}`)
+    .then(response => response.json());

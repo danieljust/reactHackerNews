@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../PostsAction';
+import {Link} from 'react-router-dom';
 
 const POST_ID = 5;
 
@@ -9,7 +10,7 @@ export const PostsList = (props) => (
         {
             props.posts.map(post => (
                 <li key={post.id}>
-                    <h3>{post.title}</h3>
+                    <Link to={`/posts/${post.id}`}>{post.title}</Link>
                     <p>{post.body}</p>
                 </li>
             ))
@@ -19,14 +20,14 @@ export const PostsList = (props) => (
 
 export class PostsListHOC extends Component {
     componentDidMount() {
-        this.props.dispatch(actions.fetchPost())
+        this.props.dispatch(actions.fetchPosts())
     }
 
     render() {
-        const {posts,pending} = this.props;
+        const {posts, pending} = this.props;
 
-        return pending  ?
-            <h1>loading...</h1>:
+        return pending ?
+            <h1>loading...</h1> :
             <PostsList posts={posts}/>
     }
 

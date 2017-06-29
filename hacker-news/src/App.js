@@ -1,31 +1,24 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import {connect} from 'react-redux';
 import './App.css';
-import {Navbar} from './components/Navbar';
+import PostsList from './features/posts/list/PostsList';
+import Navbar from './components/Navbar';
+import PostDetailed from './features/posts/details/PostDetailed';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import TopicInfoContainer from "./containers/TopicInfoContainer";
+
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="App">
-                    <div className="App-header">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                    </div>
                     <Navbar/>
-                    <Route exact={true} path="/" render={() =>
-                        <h1>MAIN PAGE</h1>
-                    }/>
-                    <Route exact={true} path="/new" render={<TopicInfoContainer data={this.props.new}/>}/>
+                    <Route exact={true} path="/" component={PostsList}/>
+                    <Route path="/posts/:postId" component={PostDetailed}/>
                 </div>
             </Router>
         );
     }
 }
-function mapStateToProps(state) {
-    return {
-        new: state.topics.new
-    }
-}
-export default connect(mapStateToProps)(App);
+
+export default connect()(App);
+{/*<Route exact={true} path="/new" render={<TopicInfoContainer data={this.props.new}/>}/>*/}

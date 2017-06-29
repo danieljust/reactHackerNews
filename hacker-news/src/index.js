@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Counter from './components/Counter';
-import PostsList from './features/posts/list/PostsList';
+
 import {createStore} from 'redux';
 import configureStore from './store/configureStore';
 
@@ -12,7 +12,7 @@ import './index.css';
 
 ReactDOM.render(
     <Provider store={configureStore({})}>
-        <PostsList/>
+        <App/>
     </Provider>,
     document.getElementById('root'));
 registerServiceWorker();

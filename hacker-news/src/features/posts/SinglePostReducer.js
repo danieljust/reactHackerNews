@@ -2,17 +2,17 @@ import {handleActions} from 'redux-actions';
 import * as actions from './PostsAction';
 
 export default handleActions({
-    [actions.FETCH_POSTS_START]: (state, action) => ({
+    [actions.FETCH_POST_START]: (state, action) => ({
         ...state,
         pending: true,
         error: null
     }),
 
-    [actions.FETCH_POSTS_END]: {
+    [actions.FETCH_POST_END]: {
         next: (state, action) => ({
             ...state,
             pending: false,
-            posts: action.payload
+            post: action.payload
         }),
 
         throw: (state, action) => ({
@@ -23,6 +23,6 @@ export default handleActions({
     }
 }, {
     error: null,
-    posts: [],
+    post: '',
     pending: false
 });
