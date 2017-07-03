@@ -4,6 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "lodash.cond": "^4.5.2",
+    "lodash.constant": "^3.0.0",
+    "lodash.eq": "^4.0.0",
+    "lodash.lt": "^3.9.2",
+    "lodash.matches": "^4.6.0",
+    "lodash.stubtrue": "^4.13.0",
     "promise": "^8.0.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
