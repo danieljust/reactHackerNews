@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import PostsList from './features/posts/list/PostsList';
-import Navbar from './components/Navbar';
+import getComponent from './utils/getComponent';
+import {Navbar} from './components/Navbar';
 import PostDetailed from './features/posts/details/PostDetailed';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -12,8 +12,12 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <Navbar/>
-                    <Route exact={true} path="/" component={PostsList}/>
                     <Route path="/posts/:postId" component={PostDetailed}/>
+                    <Route path="/new" component={getComponent('new')}/>
+                    <Route path="/comments" component={getComponent('comments')}/>
+                    <Route path="/show" component={getComponent('show')}/>
+                    <Route path="/ask" component={getComponent('ask')}/>
+                    <Route path="/jobs" component={getComponent('jobs')}/>
                 </div>
             </Router>
         );
@@ -21,4 +25,3 @@ class App extends Component {
 }
 
 export default connect()(App);
-{/*<Route exact={true} path="/new" render={<TopicInfoContainer data={this.props.new}/>}/>*/}
